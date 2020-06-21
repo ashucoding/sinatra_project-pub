@@ -1,0 +1,11 @@
+<p>Make <%= @car.make%></p>
+<p>Model <%= @car.model%></p>
+<p>Color <%= @car.color%></p>
+<p>Year <%= @car.year%></p>
+
+<form action="/cars/<%= @car.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
+
+<a href="/cars/<%= @car.id %>/edit">edit</a>

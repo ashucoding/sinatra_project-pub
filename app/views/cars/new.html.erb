@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <title>BlackOps Street Motorsport | New Car</title>
+    <meta name="description" content="Car Tracker for Street Racers.">
+    </head>
+
+<header>
+  <h1>BlackOps Street Motorsport<h1>
+
+<hr>
+
+<h2>New Car</h2>
+
+<%= "Must include Make and Model" if @car && @car.errors.any? %>
+
+<form action="/cars" method="POST">
+<p>
+<label for="make">Make</label>
+<input type="text" name="make" id="make">
+</p>
+
+<p>
+<label for="model">Model</label>
+<input type="text" name="model" id="model">
+</p>
+
+<p>
+<label for="color">Color</label>
+<input type="text" name="color" id="color">
+</p>
+
+<p>
+<label for="year">Year</label>
+<input type="text" name="year" id="year">
+</p>
+
+<br>
+<br>
+<input type="submit" name="" />
+
+</form>

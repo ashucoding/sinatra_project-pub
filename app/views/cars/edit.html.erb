@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <title>BlackOps Street Motorsport | Edit Car</title>
+    <meta name="description" content="Car Tracker for Street Racers.">
+    </head>
+
+<header>
+  <h1>BlackOps Street Motorsport<h1>
+
+<hr>
+
+<h2>Edit Car</h2>
+
+<form action="/cars/<%=@car.id%>" method="post">
+  <input type="hidden" name="_method" value="patch" id="hidden">
+  Make: <input type="text" name="Make">
+  Model: <input type="text" name="Model">
+  Color: <input type="text" name="Color">
+  Year: <input type="number" name="Year">
+  <br>
+  <br>
+  <input type="submit" name="" value="submt"/>
+
+</form>
