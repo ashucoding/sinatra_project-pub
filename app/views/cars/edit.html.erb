@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 
   <head>
-    <title>BlackOps Street Motorsport | Edit Car</title>
-    <meta name="description" content="Car Tracker for Street Racers.">
+    <title>BlackOps Auto Inventory | Edit Car</title>
+    <meta name="description" content="Tracks Your Car Inventory.">
     </head>
 
 <header>
-  <h1>BlackOps Street Motorsport<h1>
+  <h1>BlackOps Auto Inventory<h1>
 
 <hr>
 
@@ -15,10 +15,10 @@
 
 <form action="/cars/<%=@car.id%>" method="post">
   <input type="hidden" name="_method" value="patch" id="hidden">
-  Make: <input type="text" name="Make">
-  Model: <input type="text" name="Model">
-  Color: <input type="text" name="Color">
-  Year: <input type="number" name="Year">
+  Make: <input type="text" name="make" value="<%=@car.make%>">
+  Model: <input type="text" name="model" value="<%=@car.model%>">
+  Color: <input type="text" name="color" value="<%=@car.color%>">
+  Year: <input type="number" name="year" value="<%=@car.year%>">
   <br>
   <br>
   <input type="submit" name="" value="submt"/>

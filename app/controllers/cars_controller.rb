@@ -19,15 +19,20 @@ class CarsController < ApplicationController
   end
 
   post '/cars' do
-    @car = Car.new
-    @car.make = params[:make]
-    @car.model = params[:model]
-    @car.color = params[:color]
-    @car.year = params[:year]
-    if @car.save
-      redirect '/cars'
+    if !logged_in?
+      redirect "/login"
     else
-      erb :"cars/new.html"
+      @car = Car.new
+      @car.make = params[:make]
+      @car.model = params[:model]
+      @car.color = params[:color]
+      @car.year = params[:year]
+      @car.user_id = current_user.id
+      if @car.save
+        redirect '/cars'
+      else
+        erb :"cars/new.html"
+      end
     end
   end
 
@@ -35,10 +40,28 @@ class CarsController < ApplicationController
     if !logged_in?
       redirect "/login"
     else
-      if @car=current_user.cars.find_by(params[:id])
+      if @car = current_user.cars.find_by(id:params[:id])
         erb :"/cars/edit.html"
       else
-        redirect "/cars"
+      redirect '/cars'
+      end
+    end
+  end
+
+  patch '/cars/:id' do #edit action
+    if !logged_in?
+      redirect "/login"
+    else
+      @car = Car.find_by_id(params[:id])
+      @car.make = params[:make]
+      @car.model = params[:model]
+      @car.color = params[:color]
+      @car.year = params[:year]
+      if @car.save
+    #    redirect "/cars/#{@car.id}"
+      redirect "/cars"
+      else
+        erb :"/cars/edit.html"
       end
     end
   end
@@ -48,11 +71,11 @@ class CarsController < ApplicationController
     if !logged_in?
       redirect "/login"
     else
-      if @car=current_user.cars.find_by(params[:id])
-    @car.destroy
-    redirect '/cars'
+      if @car = current_user.cars.find_by(id:params[:id])
+        @car.destroy
+        redirect '/cars'
       else
-        redirect "/cars"
+        redirect '/cars'
       end
     end
   end

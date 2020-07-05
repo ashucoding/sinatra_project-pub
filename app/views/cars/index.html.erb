@@ -1,6 +1,41 @@
-<h1>Listing Cars</h1>
+<style>
+  .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+  }
 
-<table>
+.content-table thead tr {
+  background-color: #9e363a;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+  .content-table tbody tr {
+    border-bottom: 1px solid #D3D3D3;
+  }
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #D3D3D3;
+}
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #9e363a;
+}
+
+</style>
+
+
+<h1>Vehicle Inventory List</h1>
+
+<table class="content-table">
   <thead>
     <tr>
       <th>Make</th>
@@ -10,6 +45,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+
 
   <tbody>
     <% @cars.each do |car| %>
